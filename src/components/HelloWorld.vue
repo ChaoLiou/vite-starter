@@ -1,14 +1,36 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
+import {
+  HomeOutlined,
+  SettingFilled,
+  SmileOutlined,
+  SyncOutlined,
+  LoadingOutlined,
+  SmileTwoTone,
+  HeartTwoTone,
+  CheckCircleTwoTone,
+} from "@ant-design/icons-vue";
 
-defineProps<{ msg: string }>()
+import { Button } from "ant-design-vue";
 
-const count = ref(0)
+defineProps<{ msg: string }>();
+
+const count = ref(0);
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
-
+  <div class="icons-list">
+    <HomeOutlined />
+    <SettingFilled />
+    <SmileOutlined />
+    <SyncOutlined spin />
+    <SmileOutlined :rotate="180" />
+    <LoadingOutlined />
+    <SmileTwoTone />
+    <HeartTwoTone twoToneColor="#eb2f96" />
+    <CheckCircleTwoTone twoToneColor="#52c41a" />
+  </div>
   <p>
     Recommended IDE setup:
     <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
@@ -26,7 +48,7 @@ const count = ref(0)
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
   </p>
 
-  <button type="button" @click="count++">count is: {{ count }}</button>
+  <Button type="primary" @click="count++">count is: {{ count }}</Button>
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
