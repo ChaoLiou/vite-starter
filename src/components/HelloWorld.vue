@@ -21,6 +21,7 @@ const count = ref(0);
 <template>
   <h1>{{ msg }}</h1>
   <div class="icons-list">
+    <h2>Antd Icons Demo:</h2>
     <HomeOutlined />
     <SettingFilled />
     <SmileOutlined />
@@ -55,9 +56,16 @@ const count = ref(0);
   </p>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.icons-list {
+  border: 1px solid $linkTextColor;
+  h2 {
+    color: $linkTextColor;
+  }
+}
+
 a {
-  color: #42b983;
+  color: $linkTextColor;
 }
 
 label {
@@ -66,9 +74,9 @@ label {
 }
 
 code {
-  background-color: #eee;
+  background-color: $codeBGColor;
   padding: 2px 4px;
   border-radius: 4px;
-  color: #304455;
+  color: $codeTextColor;
 }
 </style>

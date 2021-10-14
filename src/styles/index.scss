@@ -1,0 +1,19 @@
+@import "modules/color";
+@import "modules/font";
+
+@font-face {
+  @include font-face-generator("fonts/Roboto-Regular.ttf", 400);
+}
+@font-face {
+  @include font-face-generator("fonts/Roboto-Medium.ttf", 500);
+}
+@font-face {
+  @include font-face-generator("fonts/Roboto-Bold.ttf", 600);
+}
+@font-face {
+  @include font-face-generator("fonts/Roboto-Black.ttf", 700);
+}
+
+body {
+  font-family: "Roboto";
+}

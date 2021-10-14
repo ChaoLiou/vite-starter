@@ -20,6 +20,9 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     plugins: [vue(), configStyleImportPlugin(isBuild)],
     css: {
       preprocessorOptions: {
+        scss: {
+          additionalData: `@import "src/styles/index.scss";`,
+        },
         less: {
           modifyVars: generateModifyVars(),
           javascriptEnabled: true,
