@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import {
-  HomeOutlined,
-  SettingFilled,
-  SmileOutlined,
-  SyncOutlined,
-  LoadingOutlined,
-  SmileTwoTone,
-  HeartTwoTone,
-  CheckCircleTwoTone,
-} from "@ant-design/icons-vue";
+  import { ref } from 'vue';
+  import {
+    HomeOutlined,
+    SettingFilled,
+    SmileOutlined,
+    SyncOutlined,
+    LoadingOutlined,
+    SmileTwoTone,
+    HeartTwoTone,
+    CheckCircleTwoTone,
+  } from '@ant-design/icons-vue';
 
-import { Button } from "ant-design-vue";
+  import { Button } from 'ant-design-vue';
 
-defineProps<{ msg: string }>();
+  defineProps<{ msg: string }>();
 
-const count = ref(0);
+  const count = ref(0);
 </script>
 
 <template>
@@ -29,8 +29,8 @@ const count = ref(0);
     <SmileOutlined :rotate="180" />
     <LoadingOutlined />
     <SmileTwoTone />
-    <HeartTwoTone twoToneColor="#eb2f96" />
-    <CheckCircleTwoTone twoToneColor="#52c41a" />
+    <HeartTwoTone two-tone-color="#eb2f96" />
+    <CheckCircleTwoTone two-tone-color="#52c41a" />
   </div>
   <p>
     Recommended IDE setup:
@@ -39,17 +39,18 @@ const count = ref(0);
     <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
   </p>
 
-  <p>See <code>README.md</code> for more information.</p>
+  <p>
+    See
+    <code>README.md</code> for more information.
+  </p>
 
   <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Docs
-    </a>
+    <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite Docs</a>
     |
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
   </p>
 
-  <Button type="primary" @click="count++">count is: {{ count }}</Button>
+  <Button type="primary" @click="count++"> count is: {{ count }} </Button>
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
@@ -57,26 +58,26 @@ const count = ref(0);
 </template>
 
 <style scoped lang="scss">
-.icons-list {
-  border: 1px solid $linkTextColor;
-  h2 {
+  .icons-list {
+    border: 1px solid $linkTextColor;
+    h2 {
+      color: $linkTextColor;
+    }
+  }
+
+  a {
     color: $linkTextColor;
   }
-}
 
-a {
-  color: $linkTextColor;
-}
+  label {
+    margin: 0 0.5em;
+    font-weight: bold;
+  }
 
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
-
-code {
-  background-color: $codeBGColor;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: $codeTextColor;
-}
+  code {
+    background-color: $codeBGColor;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: $codeTextColor;
+  }
 </style>

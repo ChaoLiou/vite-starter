@@ -12,3 +12,5 @@ export function generateModifyVars(dark = false) {
     'primary-color': 'pink',
   };
 }
+
+export default {};

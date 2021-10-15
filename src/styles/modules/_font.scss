@@ -1,5 +1,5 @@
 @mixin font-face-generator($fontUrl, $fontWeight) {
-  font-family: "Roboto";
-  src: url($fontUrl) format("truetype");
+  font-family: 'Roboto';
+  src: url($fontUrl) format('truetype');
   font-weight: $fontWeight;
 }
