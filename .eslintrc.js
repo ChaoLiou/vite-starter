@@ -4,7 +4,12 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:vue/vue3-recommended', 'plugin:import/typescript', 'airbnb-base'],
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'plugin:import/typescript',
+    'airbnb-base',
+    'plugin:jest/recommended',
+  ],
   plugins: ['@typescript-eslint', 'prettier'],
   parserOptions: {
     ecmaVersion: 2021,
@@ -13,6 +18,7 @@ module.exports = {
   rules: {
     indent: ['off', 2],
     'linebreak-style': 0,
+    'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/extensions': [
       'error',
@@ -51,4 +57,5 @@ module.exports = {
       },
     },
   },
+  presets: [['@babel/preset-env', { targets: { node: 'current' } }]],
 };
