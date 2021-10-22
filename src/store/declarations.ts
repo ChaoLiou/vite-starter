@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { ActionContext as VuexActionContext, CommitOptions, DispatchOptions } from 'vuex';
 import {
+  ModuleName as FeatureModule,
   Store as FeatureStore,
   State as FeatureState,
   NamespacedActions as FeatureActions,
@@ -8,6 +9,7 @@ import {
   NamespacedGetters as FeatureGetters,
 } from '@/store/feature/declarations';
 import {
+  ModuleName as SampleModule,
   Store as SampleStore,
   State as SampleState,
   NamespacedActions as SampleActions,
@@ -24,8 +26,8 @@ export type RootMutations = FeatureMutations & SampleMutations;
 export type RootActions = FeatureActions & SampleActions;
 export type RootGetters = FeatureGetters & SampleGetters;
 
-export type Store = FeatureStore<Pick<RootState, 'feature'>> &
-  SampleStore<Pick<RootState, 'sample'>>;
+export type Store = FeatureStore<Pick<RootState, FeatureModule>> &
+  SampleStore<Pick<RootState, SampleModule>>;
 
 /**
  * Define namespaced types of actions, mutations or getters

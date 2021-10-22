@@ -233,7 +233,7 @@ Add a new state and define a type for it.
 ### How to add a new `getter` on existing `store`?
 
 ```typescript
-// store/*/getters.ts
+// store/*/declarations.ts
 
 ...
 export type Getters = {
@@ -241,6 +241,7 @@ export type Getters = {
   newGetter(...context: GetterContext<State, Getters>): NewGetterType;
 };
 
+// store/*/getters.ts
 export const getters: GetterTree<State, RootState> & Getters = {
   ...
   newGetter: (state, getters, rootState, rootGetters) => {
@@ -266,13 +267,14 @@ export enum MutationTypes {
 First, add new type name of your new mutation.
 
 ```typescript
-// store/*/mutations.ts
+// store/*/declarations.ts
 
 export type Mutations<S = State> = {
   ...
   [MutationTypes.NEW_MUTATION_TYPE](state: S, payload: NewMutationPayloadType): void;
 };
 
+// store/*/mutations.ts
 export const mutations: MutationTree<State> & Mutations = {
   ...
   [MutationTypes.NEW_MUTATION_TYPE](state, payload: NewMutationPayloadType) {
@@ -296,13 +298,14 @@ export enum ActionTypes {
 First, add new type name of your new action.
 
 ```typescript
-// store/*/actions.ts
+// store/*/declarations.ts
 
 export interface Actions {
   ...
   [ActionTypes.NEW_ACTION_TYPE]({ commit, dispatch, state, rootState, getters, rootGetters }: ActionContext<State, Getters>, payload: NewActionPayloadType): void;
 }
 
+// store/*/actions.ts
 export const actions: ActionTree<State, RootState> & Actions = {
   ...
   [ActionTypes.NEW_ACTION_TYPE]({ commit, dispatch, state, rootState, getters, rootGetters }) {
@@ -335,6 +338,7 @@ Change `sample` to your module name.
 ```typescript
 ...
 import {
+  ModuleName as MyModuleModule,
   Store as MyModuleStore,
   State as MyModuletate,
   NamespacedActions as MyModuleActions,
@@ -352,7 +356,7 @@ export type RootActions = ... & MyModuleActions;
 export type RootGetters = ... & MyModuleGetters;
 
 export type Store = ... &
-  SampleStore<Pick<RootState, 'myModule'>>;
+  SampleStore<Pick<RootState, MyModuleModule>>;
 ...
 ```
 

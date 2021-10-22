@@ -16,7 +16,7 @@ export interface Actions {
   [ActionTypes.GET_LIST]({ commit }: ActionContext<State, Getters>, payload: any): void;
 }
 
-type ModuleName = 'sample';
+export type ModuleName = 'sample';
 
 export type NamespacedGetters = Namespaced<Getters, ModuleName>;
 export type NamespacedMutations = Namespaced<Mutations, ModuleName>;
