@@ -2,21 +2,9 @@ import { computed, ComputedRef, ref } from 'vue';
 import { FeatureModel } from '@/models/FeatureModel';
 import { FeatureInterface } from '@/interfaces/FeatureInterface';
 
-export default function useFeatureFilters(features: ComputedRef<FeatureModel[]>) {
-  const searchQuery = ref('');
-
-  const filteredFeatures = computed<FeatureInterface[]>(() => {
-    return search(features.value, searchQuery.value);
-  });
-
-  return {
-    searchQuery,
-    filteredFeatures,
-  };
-}
-
 /**
- * Search {features} which any {FeatureModel.title} or {FeatureModel.tags} contain {searchQuery}, and highlight if it's tag matching.
+ * Search {features} which any {FeatureModel.title} or
+ * {FeatureModel.tags} contain {searchQuery}, and highlight if it's tag matching.
  * @param features
  * @param searchQuery
  * @returns
@@ -37,4 +25,17 @@ export function search(features: FeatureModel[], searchQuery: string) {
           highlightedTags: feature.tags.filter((tag) => searchQuery && isSearchQueryMatched(tag)),
         } as FeatureInterface),
     );
+}
+
+export default function useFeatureFilters(features: ComputedRef<FeatureModel[]>) {
+  const searchQuery = ref('');
+
+  const filteredFeatures = computed<FeatureInterface[]>(() =>
+    search(features.value, searchQuery.value),
+  );
+
+  return {
+    searchQuery,
+    filteredFeatures,
+  };
 }

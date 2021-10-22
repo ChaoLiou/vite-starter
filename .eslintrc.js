@@ -20,18 +20,12 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     indent: ['off', 2],
     'linebreak-style': 0,
+    'implicit-arrow-linebreak': 'off',
+    'operator-linebreak': 'off',
+    'function-paren-newline': 'off',
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
+    'import/extensions': 'off',
     'object-curly-newline': 'off',
     'vue/html-self-closing': 'off',
     'vue/max-attributes-per-line': [
@@ -59,5 +53,4 @@ module.exports = {
       },
     },
   },
-  presets: [['@babel/preset-env', { targets: { node: 'current' } }]],
 };

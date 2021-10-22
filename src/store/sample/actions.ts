@@ -2,12 +2,8 @@ import type { ActionTree } from 'vuex';
 import { ActionTypes } from './types';
 import { defaultOptions } from '@/store/utils';
 import type { State } from './state';
-import type { Getters } from './getters';
-import type { RootState, ActionContext } from '@/store/declarations';
-
-export interface Actions {
-  [ActionTypes.GET_LIST]({ commit }: ActionContext<State, Getters>, payload: any): void;
-}
+import type { RootState } from '@/store/declarations';
+import { Actions } from './declarations';
 
 export const actions: ActionTree<State, RootState> & Actions = {
   async [ActionTypes.GET_LIST]({ commit }) {
@@ -15,3 +11,5 @@ export const actions: ActionTree<State, RootState> & Actions = {
     commit('sample/SET_LIST', data, defaultOptions);
   },
 };
+
+export default { actions };

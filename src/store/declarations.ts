@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { ActionContext as VuexActionContext, CommitOptions, DispatchOptions } from 'vuex';
 import {
   Store as FeatureStore,

@@ -213,7 +213,7 @@ export interface FeatureInterface extends FeatureModel {
 
 You can see that the `highlightedTags` field in `FeatureInterface` is just for component logic concerns, not exactly a data field, so we need a view model for division from 2 models.
 
-## About `vuex@next`
+## About `store`
 
 ### How to add a new `state` on existing `store`?
 
@@ -371,3 +371,23 @@ export const store = createStore({
 });
 ...
 ```
+
+## About `composables`
+
+According to [Vue3 Guide](https://v3.vuejs.org/guide/composition-api-introduction.html), the purpose of `composition api` is to **extract logical concerns into standalone composition functions**, or you can think as **what functionalities should be `hooked` on this component?** and then pick them under `composables` folder.
+
+## About `tests/unit`
+
+According to [Vue3 Guide](https://v3.vuejs.org/guide/testing.html#unit-testing), unit tests allow you to **test individual units of code in isolation**. The purpose of unit testing is to **provide developers with confidence in their code**. By writing thorough, **meaningful tests**, you achieve the confidence that as new features are built or your code is refactored your application will remain functional and stable.
+
+Think about these questions:
+
+- What's `unit` in our code?
+- What kind of code is that you'll `have no confidence` if you change it again?
+- What kind of test is `meaningful to you`?
+
+## About `tests/e2e`
+
+According to [Vue3 Guide](https://v3.vuejs.org/guide/testing.html#end-to-end-e2e-testing), end-to-end (E2E) tests provide coverage on what is arguably the most important aspect of an application: **what happens when users actually use your applications**. In other words, E2E tests validate all of the layers in your application. This **not only includes your frontend code, but all associated backend services and infrastructure** that are more representative of the environment that your users will be in.
+
+First time to use `cypress`, you can type `yarn cypress` and it'll open the dashboard window, then select `base.spec.ts` to run test.

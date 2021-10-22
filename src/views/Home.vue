@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { defineComponent, computed } from 'vue';
-  import { useStore } from '@/store';
-  import { List, ListItem, Card, Tag, InputSearch, Divider } from 'ant-design-vue';
+  import { defineComponent } from 'vue';
+  import { Tag, InputSearch, Divider } from 'ant-design-vue';
   import FeatureList from '@/components/FeatureList.vue';
   import useFeatures from '@/composables/useFeatures';
   import useFeatureFilters from '@/composables/useFeatureFilters';
@@ -9,9 +8,6 @@
 
   export default defineComponent({
     components: {
-      List,
-      ListItem,
-      Card,
       Tag,
       InputSearch,
       Divider,

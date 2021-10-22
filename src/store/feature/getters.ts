@@ -1,13 +1,10 @@
 import type { GetterTree } from 'vuex';
-import type { RootState, GetterContext } from '@/store/declarations';
+import type { RootState } from '@/store/declarations';
 import type { State } from './state';
-
-export type Getters = {
-  allTags(...context: GetterContext<State, Getters>): string[];
-};
+import { Getters } from './declarations';
 
 export const getters: GetterTree<State, RootState> & Getters = {
-  allTags: (state) => {
-    return state.list.map((item) => item.tags).flat();
-  },
+  allTags: (state) => state.list.map((item) => item.tags).flat(),
 };
+
+export default { getters };

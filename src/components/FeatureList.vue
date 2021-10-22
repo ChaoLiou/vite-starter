@@ -17,23 +17,23 @@
       },
     },
     setup(props) {
-      const { dataSource } = toRefs(props);
+      const { dataSource: features } = toRefs(props);
       return {
-        dataSource,
+        features,
       };
     },
   });
 </script>
 
 <template>
-  <List item-layout="vertical" :data-source="dataSource">
+  <List item-layout="vertical" :data-source="features">
     <template #renderItem="{ item }">
       <ListItem>
         <Card :title="item.title">
           <Tag
-            :color="item.highlightedTags.includes(tag) ? 'orange' : ''"
             v-for="tag in item.tags"
             :key="tag"
+            :color="item.highlightedTags.includes(tag) ? 'orange' : ''"
           >
             {{ tag }}
           </Tag>

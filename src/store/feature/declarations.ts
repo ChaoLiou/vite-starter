@@ -1,9 +1,21 @@
+/* eslint-disable no-unused-vars */
 import type { Store as VuexStore, CommitOptions, DispatchOptions } from 'vuex';
-import type { Getters } from './getters';
-import type { Mutations } from './mutations';
-import type { Actions } from './actions';
 import type { State } from './state';
-import type { Namespaced } from '@/store/declarations';
+import type { Namespaced, GetterContext, ActionContext } from '@/store/declarations';
+import { MutationTypes, ActionTypes } from './types';
+import { FeatureModel } from '@/models/FeatureModel';
+
+export type Mutations<S = State> = {
+  [MutationTypes.SET_LIST](state: S, payload: FeatureModel[]): void;
+};
+
+export type Getters = {
+  allTags(...context: GetterContext<State, Getters>): string[];
+};
+
+export interface Actions {
+  [ActionTypes.GET_LIST]({ commit }: ActionContext<State, Getters>, payload: any): void;
+}
 
 type ModuleName = 'feature';
 
