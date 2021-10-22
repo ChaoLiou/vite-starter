@@ -5,11 +5,7 @@ module.exports = {
   moduleDirectories: ['node_modules', 'src'],
   moduleFileExtensions: ['js', 'ts', 'vue', 'tsx', 'jsx', 'json'],
   modulePaths: ['<rootDir>/src', '<rootDir>/node_modules'],
-  testMatch: [
-    '**/tests/unit/**/*.[jt]s?(x)',
-    '**/?(*.)+(spec|test).[tj]s?(x)',
-    '(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)$',
-  ],
+  testMatch: ['**/tests/unit/**/*.spec.[jt]s?(x)'],
   testPathIgnorePatterns: ['/node_modules/'],
   transform: {
     '^.+\\.vue$': 'vue3-jest',
@@ -31,4 +27,5 @@ module.exports = {
       isolatedModules: true,
     },
   },
+  setupFiles: ['<rootDir>/tests/unit/components/setupTests.js'],
 };

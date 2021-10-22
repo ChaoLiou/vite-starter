@@ -28,7 +28,7 @@ export function configStyleImportPlugin(isBuild: boolean) {
             'breadcrumb-item',
             'breadcrumb-separator',
             'input-password',
-            'input-search',
+            // 'input-search',
             'input-group',
             'form-item',
             'radio-group',

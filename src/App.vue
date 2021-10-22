@@ -1,20 +1,21 @@
 <script setup lang="ts">
-  // This starter template is using Vue 3 <script setup> SFCs
-  // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-  import HelloWorld from './components/HelloWorld.vue';
+  import { Layout, LayoutContent, LayoutHeader, Menu, MenuItem } from 'ant-design-vue';
+  import { menuList } from '@/router';
 </script>
 
 <template>
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <Layout>
+    <LayoutHeader>
+      <Menu theme="dark" mode="horizontal" :selected-keys="['home']">
+        <MenuItem v-for="item in menuList" :key="item.key">
+          <router-link :to="item.link">{{ item.title }}</router-link>
+        </MenuItem>
+      </Menu>
+    </LayoutHeader>
+    <LayoutContent style="padding: 16px">
+      <router-view />
+    </LayoutContent>
+  </Layout>
 </template>
 
-<style lang="scss">
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: $rootTextColor;
-    margin-top: 60px;
-  }
-</style>
+<style lang="scss"></style>
