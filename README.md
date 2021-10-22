@@ -1,5 +1,25 @@
 # A frontend boilerplate for XYCloud applications
 
+## Supports
+
+- Language: `typescript`
+- Vue: `vue3`, `vite`, `vuex@next`, `vue-router@next`
+- CSS Preprocessor: `sass`, `scss`, `less`
+- UI Library: `ant-design-vue@next`
+- Testing Library: `jest`, `cypress`
+
+## Enhancements
+
+- Vuex type intellisense
+  - **.vue**: :fire: Type intellisense also support on `.vue`. That's right! Try yourself to feel the difference.
+  - **Actions**: The `action context` properties are all supporting type intellisense
+    - including `commit`, `dispatch`, `state`, `rootState`, `getters`, `rootGetters`
+  - **Getters**: The `getter context` parameters are all supporting type intellisense
+    - including `state`, `rootState`, `getters`, `rootGetters`
+- Antd
+  - Styles import on demand
+  - Theme customization
+
 ## Please follow steps to scaffold your project based on `xycloud-starter`
 
 ### 1. Clone `xycloud-starter` and change directory inside
@@ -45,14 +65,6 @@ git clone https://gitlab.ict888.net/CWD/xycloud-starter.git your-project-name & 
 ```
 git clone https://gitlab.ict888.net/CWD/xycloud-starter.git your-project-name & cd your-project-name & rm -rf .git & git init & git add . & git commit -m "project init" & code .
 ```
-
-## Features
-
-- Language: `typescript`
-- Vue: `vue3`, `vite`, `vuex@next`, `vue-router@next`
-- CSS Preprocessor: `sass`, `scss`, `less`
-- UI Library: `ant-design-vue@next`
-- Testing Library: `jest`, `cypress`
 
 ## Folder structure
 
