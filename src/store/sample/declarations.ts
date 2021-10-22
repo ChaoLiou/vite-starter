@@ -5,7 +5,7 @@ import type { Actions } from './actions';
 import type { State } from './state';
 import type { Namespaced } from '@/store/declarations';
 
-type ModuleName = 'feature';
+type ModuleName = 'sample';
 
 export type NamespacedGetters = Namespaced<Getters, ModuleName>;
 export type NamespacedMutations = Namespaced<Mutations, ModuleName>;

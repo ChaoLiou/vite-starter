@@ -1,21 +1,26 @@
 [
   {
+    "id": 1,
     "title": "Language",
     "tags": ["typescript"]
   },
   {
+    "id": 2,
     "title": "Vue",
     "tags": ["vue3", "vite", "vuex@next", "vue-router@next"]
   },
   {
+    "id": 3,
     "title": "CSS Preprocessor",
     "tags": ["sass", "scss", "less"]
   },
   {
+    "id": 4,
     "title": "UI Library",
     "tags": ["antd"]
   },
   {
+    "id": 5,
     "title": "Testing Library",
     "tags": ["jest", "cypress"]
   }

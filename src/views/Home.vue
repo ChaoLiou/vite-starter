@@ -1,9 +1,11 @@
 <script lang="ts">
-  import { defineComponent } from 'vue';
+  import { defineComponent, computed } from 'vue';
+  import { useStore } from '@/store';
   import { List, ListItem, Card, Tag, InputSearch, Divider } from 'ant-design-vue';
   import FeatureList from '@/components/FeatureList.vue';
   import useFeatures from '@/composables/useFeatures';
   import useFeatureFilters from '@/composables/useFeatureFilters';
+  import useSamples from '@/composables/useSamples';
 
   export default defineComponent({
     components: {
@@ -17,12 +19,15 @@
     },
     setup() {
       const { features, allTags } = useFeatures();
+      const { lastSample, samples } = useSamples();
       const { searchQuery, filteredFeatures } = useFeatureFilters(features);
 
       return {
         allTags,
         searchQuery,
         filteredFeatures,
+        lastSample,
+        samples,
       };
     },
   });
@@ -44,6 +49,8 @@
       </Tag>
       <FeatureList :data-source="filteredFeatures"></FeatureList>
     </div>
+    <h3>All samples: {{ samples.join(', ') }}</h3>
+    <h3>Last sample: {{ lastSample }}</h3>
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 import { createStore, createLogger } from 'vuex';
 import { store as feature } from '@/store/feature';
+import { store as sample } from '@/store/sample';
 import type { Store } from '@/store/declarations';
 
 const plugins = [];
@@ -11,6 +12,7 @@ export const store = createStore({
   plugins,
   modules: {
     feature,
+    sample,
   },
 });
 

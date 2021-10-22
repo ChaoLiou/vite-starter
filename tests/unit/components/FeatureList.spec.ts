@@ -1,10 +1,12 @@
 import { mount } from '@vue/test-utils';
 import FeatureList from '@/components/FeatureList.vue';
-import { FeatureModel } from '@/models/FeatureModel';
+import { FeatureInterface } from '@/interfaces/FeatureInterface';
 
 describe('FeatureList.vue', () => {
   it('renders props.dataSource when passed', async () => {
-    const dataSource: FeatureModel[] = [{ title: 'Title', tags: ['Tag1', 'Tag2'] }];
+    const dataSource: FeatureInterface[] = [
+      { title: 'Title', tags: ['Tag1', 'Tag2'], highlightedTags: ['Tag1', 'Tag2'] },
+    ];
     const wrapper = mount(FeatureList);
     await wrapper.setProps({
       dataSource,

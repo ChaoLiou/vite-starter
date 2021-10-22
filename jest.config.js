@@ -27,5 +27,5 @@ module.exports = {
       isolatedModules: true,
     },
   },
-  setupFiles: ['<rootDir>/tests/unit/components/setupTests.js'],
+  setupFiles: ['<rootDir>/tests/unit/components/setupTests.ts'],
 };
