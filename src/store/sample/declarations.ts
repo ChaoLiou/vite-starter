@@ -16,6 +16,8 @@ export interface Actions {
   [ActionTypes.GET_LIST]({ commit }: ActionContext<State, Getters>, payload: any): void;
 }
 
+// If you copy from 'sample',
+// remember to change this type variable into your module name.
 export type ModuleName = 'sample';
 
 export type NamespacedGetters = Namespaced<Getters, ModuleName>;
