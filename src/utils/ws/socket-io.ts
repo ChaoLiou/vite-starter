@@ -16,14 +16,18 @@ const socketIOPlugin = {
     const socket = io(uri, socketIOOptions);
     socket.connect();
 
-    socket.emit('join', (res: string) => {
-      console.log(res);
-      const timestamp = Date.now();
-      store.dispatch(
-        typeFormatter('join'),
-        { name: 'join', timestamp, params: res },
-        defaultOptions,
-      );
+    socket.on('connect', () => {
+      if (socket.connected) {
+        socket.emit('join', (res: string) => {
+          console.log(res);
+          const timestamp = Date.now();
+          store.dispatch(
+            typeFormatter('join'),
+            { name: 'join', timestamp, params: res },
+            defaultOptions,
+          );
+        });
+      }
     });
 
     socket.onAny((eventName: string, data: any) => {
