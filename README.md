@@ -111,7 +111,10 @@ git clone https://gitlab.ict888.net/CWD/xycloud-starter.git your-project-name & 
 |   |   └── index.scss              # global scss
 │   ├── utils
 |   |   └── http
-|   |       └── axios.ts            # axios client
+|   |   |   └── axios.ts            # axios client
+|   |   └── ws
+|   |       ├── declarations.ts     # [DNC] type/interface plugin options
+|   |       └── socket-io.ts        # socket-io client plugin
 │   ├── views
 │   ├── App.vue
 │   ├── env.d.ts                    # [DNC] provided from vite
@@ -129,7 +132,8 @@ git clone https://gitlab.ict888.net/CWD/xycloud-starter.git your-project-name & 
             ├── FeatureList.spec.ts # unit tests
             └── setupTests.ts       # [DNC]
 
-[DNC]: DO NOT CHANGE
+[DNC]: means 'DO NOT CHANGE'
+* declarations.ts: contains related types and interfaces
 ```
 
 ## About `ant-design-vue@next`
