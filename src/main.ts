@@ -14,7 +14,7 @@ async function bootstrap() {
   app.use(store);
 
   app.use(socketIOPlugin, {
-    uri: 'ws://localhost:3001',
+    uri: 'ws://172.17.9.54:3001',
     socketIOOptions: {},
     vuex: { store, namespace: 'wsqueue' },
   });

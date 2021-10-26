@@ -19,7 +19,11 @@ const socketIOPlugin = {
     socket.emit('join', (res: string) => {
       console.log(res);
       const timestamp = Date.now();
-      store.dispatch(typeFormatter('join'), { name: 'join', timestamp }, defaultOptions);
+      store.dispatch(
+        typeFormatter('join'),
+        { name: 'join', timestamp, params: res },
+        defaultOptions,
+      );
     });
 
     socket.onAny((eventName: string, data: any) => {
