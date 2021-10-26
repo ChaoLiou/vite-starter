@@ -7,6 +7,7 @@
 - CSS Preprocessor: `sass`, `scss`, `less`
 - UI Library: `ant-design-vue@next`
 - Testing Library: `jest`, `cypress`
+- WebSocket Client: `socket.io-client`
 
 ## Enhancements
 
@@ -19,6 +20,8 @@
 - Antd
   - Styles import on demand
   - Theme customization
+- WS x Vuex Plugin
+  - Receiving WS events will be triggered to dispatch the same name actions of a specified namespaced store.
 
 ## Please follow steps to scaffold your project based on `xycloud-starter`
 
