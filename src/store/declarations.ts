@@ -16,18 +16,28 @@ import {
   NamespacedMutations as SampleMutations,
   NamespacedGetters as SampleGetters,
 } from '@/store/sample/declarations';
+import {
+  ModuleName as WsqueueModule,
+  Store as WsqueueStore,
+  State as WsqueueState,
+  NamespacedActions as WsqueueActions,
+  NamespacedMutations as WsqueueMutations,
+  NamespacedGetters as WsqueueGetters,
+} from '@/store/wsqueue/declarations';
 
 export type RootState = {
   feature: FeatureState;
   sample: SampleState;
+  wsqueue: WsqueueState;
 };
 
-export type RootMutations = FeatureMutations & SampleMutations;
-export type RootActions = FeatureActions & SampleActions;
-export type RootGetters = FeatureGetters & SampleGetters;
+export type RootMutations = FeatureMutations & SampleMutations & WsqueueMutations;
+export type RootActions = FeatureActions & SampleActions & WsqueueActions;
+export type RootGetters = FeatureGetters & SampleGetters & WsqueueGetters;
 
 export type Store = FeatureStore<Pick<RootState, FeatureModule>> &
-  SampleStore<Pick<RootState, SampleModule>>;
+  SampleStore<Pick<RootState, SampleModule>> &
+  WsqueueStore<Pick<RootState, WsqueueModule>>;
 
 /**
  * Define namespaced types of actions, mutations or getters

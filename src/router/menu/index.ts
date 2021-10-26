@@ -4,4 +4,9 @@ export default [
     title: 'Home',
     link: '/',
   },
+  {
+    key: 'eventlogs',
+    title: 'Event Logs',
+    link: '/event-logs',
+  },
 ];
