@@ -22,6 +22,7 @@
   - Theme customization
 - WS x Vuex Plugin
   - Receiving WS events will be triggered to dispatch the same name actions of a specified namespaced store.
+- Code-split & Gzip
 
 ## Please follow steps to scaffold your project based on `xycloud-starter`
 

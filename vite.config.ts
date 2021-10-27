@@ -1,6 +1,7 @@
 import { defineConfig, ConfigEnv, UserConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
+import gzipPlugin from 'rollup-plugin-gzip';
 import { configStyleImportPlugin } from './build/styleImport';
 import { generateModifyVars } from './build/generateModifyVars';
 
@@ -23,6 +24,21 @@ export default defineConfig(({ command }: ConfigEnv): UserConfig => {
         less: {
           modifyVars: generateModifyVars(),
           javascriptEnabled: true,
+        },
+      },
+    },
+    build: {
+      rollupOptions: {
+        plugins: [gzipPlugin()],
+        output: {
+          manualChunks(id) {
+            const result = /[\\/]node_modules[\\/](.*?)([\\/]|$)/.exec(id);
+            if (result) {
+              const [, packageName] = result;
+              return `npm.${packageName.replace('@', '')}`;
+            }
+            return 'others';
+          },
         },
       },
     },
