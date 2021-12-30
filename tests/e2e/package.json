@@ -1,0 +1,21 @@
+{
+  "name": "vite-starter-e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress": "cypress open",
+    "cypress:alpha": "cypress open --env target=alpha",
+    "test:e2e": "cypress run --headless",
+    "test:e2e:alpha": "cypress run --env target=alpha --headless"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "cypress": "^9.1.1",
+    "eslint-plugin-cypress": "^2.12.1",
+    "typescript": "^4.5.2"
+  }
+}

@@ -15,6 +15,7 @@ module.exports = {
     ecmaVersion: 2021,
     parser: '@typescript-eslint/parser',
   },
+  ignorePatterns: ['tests/e2e/**/*.ts'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -28,23 +29,18 @@ module.exports = {
     'import/extensions': 'off',
     'object-curly-newline': 'off',
     'vue/html-self-closing': 'off',
-    'vue/max-attributes-per-line': [
-      'error',
-      {
-        singleline: 3,
-        multiline: {
-          max: 1,
-          allowFirstLine: false,
-        },
-      },
-    ],
     'vue/singleline-html-element-content-newline': 'off',
+    'newline-per-chained-call': 'off',
+    'vue/no-v-html': 'off',
+    'no-confusing-arrow': 'off',
+    'vue/max-attributes-per-line': 'off',
   },
   globals: {
     defineProps: 'readonly',
     defineEmits: 'readonly',
     defineExpose: 'readonly',
     withDefaults: 'readonly',
+    processEnv: 'readable',
   },
   settings: {
     'import/resolver': {

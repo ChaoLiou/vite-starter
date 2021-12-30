@@ -1,12 +1,14 @@
+import { RouteKeys, RouteTitleMap } from '@/router/routes';
+
 export default [
   {
-    key: 'home',
-    title: 'Home',
-    link: '/',
+    key: RouteKeys.HOME,
+    name: RouteTitleMap[RouteKeys.HOME],
+    path: '/dashboard',
   },
   {
-    key: 'eventlogs',
-    title: 'Event Logs',
-    link: '/event-logs',
+    key: RouteKeys.EVENT_LOGS,
+    name: RouteTitleMap[RouteKeys.EVENT_LOGS],
+    path: '/server',
   },
 ];

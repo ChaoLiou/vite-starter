@@ -1,4 +1,4 @@
-# A frontend boilerplate for XYCloud applications
+# A frontend boilerplate for vite applications
 
 ## Supports
 
@@ -24,16 +24,16 @@
   - Receiving WS events will be triggered to dispatch the same name actions of a specified namespaced store.
 - Code-split & Gzip
 
-## Please follow steps to scaffold your project based on `xycloud-starter`
+## Please follow steps to scaffold your project based on `vite-starter`
 
-### 1. Clone `xycloud-starter` and change directory inside
+### 1. Clone `vite-starter` and change directory inside
 
 ```shell
-git clone https://gitlab.ict888.net/CWD/xycloud-starter.git your-project-name
+git clone https://github.com/ChaoLiou/vite-starter.git your-project-name
 cd your-project-name
 ```
 
-### 2. Remove `.git` folder to discard git history of `xycloud-starter`
+### 2. Remove `.git` folder to discard git history of `vite-starter`
 
 ```shell
 rmdir /s /q .git # Windows
@@ -61,13 +61,13 @@ yarn dev # wait on localhost:3000
 ### Windows
 
 ```shell
-git clone https://gitlab.ict888.net/CWD/xycloud-starter.git your-project-name & cd your-project-name & rmdir /s /q .git & git init & git add . & git commit -m "project init" & code .
+git clone https://github.com/ChaoLiou/vite-starter.git your-project-name & cd your-project-name & rmdir /s /q .git & git init & git add . & git commit -m "project init" & code .
 ```
 
 ### MacOS or Linux
 
 ```
-git clone https://gitlab.ict888.net/CWD/xycloud-starter.git your-project-name & cd your-project-name & rm -rf .git & git init & git add . & git commit -m "project init" & code .
+git clone https://github.com/ChaoLiou/vite-starter.git your-project-name & cd your-project-name & rm -rf .git & git init & git add . & git commit -m "project init" & code .
 ```
 
 ## Folder structure
@@ -77,62 +77,97 @@ git clone https://gitlab.ict888.net/CWD/xycloud-starter.git your-project-name & 
 |   ├── generateModifyVars.ts       # customize theme(antd)
 │   └── styleImport.ts              # [DNC] introduces component library(antd) styles on demand
 ├── public
+│   ├── configs
+|   |   └── index.js                # global variables: 'processEnv' for environment variables
+│   ├── fonts                       # Roboto fonts
+│   ├── *.svg                       # svg files
 │   └── favicon.ico
 ├── src
 │   ├── asseets
 │   ├── components
+│   │   ├── dashboard               # related to dashboard page
+│   │   ├── debug                   # born for debugging
+│   │   ├── icons                   # component wrapping with svg
+│   │   ├── statusLabel             # badge for vm/ltm status
+|   |   └── *.vue
 │   ├── composables                 # divide your component's logical concerns
-|   |   ├── useFeatureFilters.ts
-|   |   └── useFeatures.ts
+|   |   ├── global                  # composables for global use
+|   |   ├── tableControl            # related to TableControl
+|   |   └── use*.ts
 │   ├── interfaces
-|   |   └── FeatureInterface.ts     # view model interface for component
+|   |   ├── *Interface.ts           # view model extended with data model
+|   |   └── UtilityInterface.ts     # utility usage
+│   ├── miragejs
+|   |   ├── generators              # fake data generator function or pure json
+|   |   ├── routes                  # miragejs server route configs
+|   |   ├── directus.ts             # directus cms api
+|   |   ├── server.ts               # miragejs server
+|   |   └── utils.ts                # utils/helpers, e.g. randomPick, randomAmountOfResult
 │   ├── models
-|   |   └── FeatureModel.ts         # model for api response
+|   |   ├── *Model.ts               # data model for api response
+|   |   └── UtilityModel.ts         # utility usage
+│   ├── pageConfigs
+|   |   ├── declarations.ts         # interface extended with npm package's declarations
+|   |   ├── *PageConfig.ts          # specified page configs
+|   |   └── utilityPageConfig.ts    # utility usage
+│   ├── plugins
+|   |   ├── localStorage
+|   |   |   ├── index.ts            # local storage utils/helpers
+|   |   |   └── mock.ts             # local storage mock
+|   |   ├── ws
+|   |   |   ├── declarations.ts     # [DNC] type/interface plugin options
+|   |   |   └── socket-io.ts        # socket-io client plugin
+|   |   └── formatter.ts            # data format functions
 │   ├── router
 |   |   ├── menu                    # menu items
 |   |   ├── routes                  # route items
 |   |   └── index.ts
 │   ├── services
-|   |   └── FeatureService.ts       # requests to api
+|   |   └── *Service.ts             # requests to api
 │   ├── store
-|   |   ├── feature
-|   |   |   ├── actions.ts          # module store actions
-|   |   |   ├── declarations.ts     # [DNC] type/interface utils
-|   |   |   ├── getters.ts          # module store getters
-|   |   |   ├── index.ts            # module store
-|   |   |   ├── mutations.ts        # module store mutations
-|   |   |   ├── state.ts            # module store state
-|   |   |   └── types.ts            # module store types for actions/mutations
+|   |   ├── dashboard
+|   |   ├── ltm
+|   |   ├── profile
+|   |   ├── server
+|   |   ├── serverEnv
+|   |   ├── wsqueue
 |   |   ├── declaration.ts
 |   |   └── index.ts
 │   ├── styles
 |   |   ├── modules                 # scss modules
 |   |   |   ├── _color.scss
-|   |   |   └── _font_.scss
+|   |   |   └── _font.scss
 |   |   └── index.scss              # global scss
 │   ├── utils
 |   |   └── http
-|   |   |   └── axios.ts            # axios client
-|   |   └── ws
-|   |       ├── declarations.ts     # [DNC] type/interface plugin options
-|   |       └── socket-io.ts        # socket-io client plugin
+|   |       └── axios.ts            # axios client
 │   ├── views
+│   │   ├── Server
+│   |   |   ├── Detail.vue
+│   |   |   └── List.vue
+│   |   ├── Dashboard.vue
+│   |   └── LoadBalancing.vue
 │   ├── App.vue
 │   ├── env.d.ts                    # [DNC] provided from vite
-│   └── main.ts
+│   ├── main.ts
+│   └── router.ts                   # declaractions for Vue Route Meta
 └── tests
     ├── e2e
     |   ├── fixtures                # [DNC]
     |   ├── integration             # e2e tests
     |   |   └── basic.spec.ts
     |   ├── plugins                 # [DNC]
-    |   ├── support                 # [DNC]
+    |   ├── support                 # init cypress
+    |   |   ├── commands.ts         # for extending {cy} methods
+    |   |   └── index.ts            # [DNC]
     |   └── tsconfig.json           # [DNC]
     └── unit
-        └── components
-            ├── FeatureList.spec.ts # unit tests
-            └── setupTests.ts       # [DNC]
-
+        ├── components
+        |   ├── *.spec.ts           # unit tests for components
+        |   └── setupTests.ts       # [DNC]
+        ├── composables
+        |   └── *.spec.ts           # unit tests for composables
+        └── *.spec.ts               # unit tests
 [DNC]: means 'DO NOT CHANGE'
 * declarations.ts: contains related types and interfaces
 ```
@@ -167,7 +202,7 @@ if (import.meta.env.DEV) {
 }
 ```
 
-First of all, `xycloud-starter` is using `import styles on demand` feature for `ant-design-vue` component styles.
+First of all, `vite-starter` is using `import styles on demand` feature for `ant-design-vue` component styles.
 
 ```typescript
 // vite.config.ts
@@ -194,7 +229,7 @@ But if we use `import styles on demand` feature on `development mode`, it might 
 
 A `model` is the definition of data from api service, we only define the fields we needs, and a `interface` is rewrapping from a model, like a view model for component data scheme.
 
-Example in `xycloud-starter`
+Example in `vite-starter`
 
 A fake feature api response:
 
@@ -254,14 +289,16 @@ Add a new state and define a type for it.
 
 ```typescript
 // store/*/declarations.ts
-
 ...
-export type Getters = {
+export type DeclareGetters = {
   ...
   newGetter(...context: GetterContext<State, Getters>): NewGetterType;
 };
 
 // store/*/getters.ts
+...
+import { DeclareGetters as Getters } from './declarations';
+
 export const getters: GetterTree<State, RootState> & Getters = {
   ...
   newGetter: (state, getters, rootState, rootGetters) => {

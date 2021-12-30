@@ -2,6 +2,7 @@ import { defineConfig, ConfigEnv, UserConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import gzipPlugin from 'rollup-plugin-gzip';
+import { injectHtml } from 'vite-plugin-html';
 import { configStyleImportPlugin } from './build/styleImport';
 import { generateModifyVars } from './build/generateModifyVars';
 
@@ -9,13 +10,22 @@ import { generateModifyVars } from './build/generateModifyVars';
 export default defineConfig(({ command }: ConfigEnv): UserConfig => {
   const isBuild = command === 'build';
   return {
+    base: '/',
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src'),
       },
       extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
     },
-    plugins: [vue(), configStyleImportPlugin(isBuild)],
+    plugins: [
+      vue(),
+      configStyleImportPlugin(isBuild),
+      injectHtml({
+        data: {
+          timestamp: Date.now(),
+        },
+      }),
+    ],
     css: {
       preprocessorOptions: {
         scss: {

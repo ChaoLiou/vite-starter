@@ -1,5 +1,6 @@
 export interface EventModel {
   name: string;
-  params?: string;
-  timestamp: Number;
+  params?: any;
+  timestamp: number;
+  type: 'request' | 'receive';
 }

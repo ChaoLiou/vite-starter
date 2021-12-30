@@ -1,0 +1,11 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "fixturesFolder": "fixtures",
+  "integrationFolder": "integration",
+  "pluginsFile": "plugins/index.ts",
+  "screenshotsFolder": "screenshots",
+  "supportFile": "support/index.ts",
+  "video": false,
+  "viewportHeight": 1024,
+  "viewportWidth": 1440
+}

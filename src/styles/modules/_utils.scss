@@ -1,0 +1,7 @@
+@mixin vendor-transition($property: all, $duration: 0.5s, $timing-function: ease-out) {
+  -moz-transition: $property $duration $timing-function;
+  -webkit-transition: $property $duration $timing-function;
+  -ms-transition: $property $duration $timing-function;
+  -o-transition: $property $duration $timing-function;
+  transition: $property $duration $timing-function;
+}
